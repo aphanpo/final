@@ -32,9 +32,9 @@ export default (state = initialState, action) => {
     }
 }
 
-function register(name, password, address, bed_option, total_beds, dispatch) {
+function register(name, password, address, email, bed_option, total_beds, meal_option, dispatch) {
     return new Promise((resolve, reject) => {
-        axios.post("/register", { name, password, address, bed_option, total_beds }).then(resp => {
+        axios.post("/register", { name, password, address, email, bed_option, total_beds, meal_option }).then(resp => {
             login(name, password, dispatch).then( ()=> {
                 resolve()
             })
@@ -45,9 +45,9 @@ function register(name, password, address, bed_option, total_beds, dispatch) {
     })
 }
 
-function shelter(name, address, bed_option, total_beds, dispatch) {
+function shelter(name, address, bed_option, open_beds, total_beds, meal_option) {
     return new Promise((resolve, reject) => {
-        axios.get("/ShelterList", {name, address, bed_option, total_beds}).then(resp => {
+        axios.get("/shelters", {name, address, bed_option, open_beds, total_beds, meal_option}).then(resp => {
             resolve()
         })
         .catch(e => {
@@ -105,14 +105,16 @@ export function useAuth() {
     const address = useSelector(appState => appState.authState.address)
     const bed_option = useSelector(appState => appState.authState.bed_option)
     const total_beds = useSelector(appState => appState.authState.total_beds)
+    const open_beds = useSelector(appState => appState.authState.open_beds)
+    const meal_option = useSelector(appState => appState.authState.meal_option)
     const isAuthenticated = useSelector(appState => appState.authState.isAuthenticated)
     const dispatch = useDispatch()
     const signin = (name, password) => {
         dispatch({type: LOGIN_PENDING})
         return login(name, password, dispatch)
     }
-    const reg = (name, password, address, bed_option, total_beds) => {
-        return register(name, password, address, bed_option, total_beds, dispatch)
+    const reg = (name, password, address, email, bed_option, open_beds, total_beds, meal_option) => {
+        return register(name, password, address, email, bed_option, open_beds, total_beds, meal_option, dispatch)
     }
     const signout = () => dispatch({type: LOGOUT})
 
@@ -122,5 +124,5 @@ export function useAuth() {
     }, [dispatch])
 
 
-    return  { isAuthenticated, name, signin, signout, logout, reg, total_beds, bed_option, address, shelter }
+    return  { isAuthenticated, name, signin, signout, logout, reg, total_beds, bed_option, address, shelter, meal_option, open_beds }
 }

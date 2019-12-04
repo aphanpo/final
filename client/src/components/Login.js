@@ -18,15 +18,28 @@ export default props => {
     }
 
     return (
-        <div className="loginForm">
-            <Link to="/"><Icon icon="home"> Home </Icon></Link>
-            <form onSubmit={handleSubmit}>
-                <input placeholder="name" type="text" name="name" value={name} onChange={e=> setName(e.target.value)} />
-                <input placeholder="password" type="password" name="password" value={password} onChange={e=> setPassword(e.target.value)} />
+        <div className="login">
+            <div className="loginHeader">
+                <div className="HomeButton">
+                <Link to="/"><Icon icon="home"> Home </Icon></Link>
+                </div>
+                <p className="acct"> Login to manage your account</p>
+                <p>Don't have an account? <Link to="./Register"><button className="RegisterButton">Sign up</button></Link></p>
+            </div>
+            
+            <div className="loginForm">
+                <form onSubmit={handleSubmit}>
+                    <div className="loginPart">
+                    <label>Shelter Name</label>
+                    <input placeholder="name" type="text" name="name" value={name} onChange={e=> setName(e.target.value)} />
 
-                <button type="submit">Login</button>
-                <button><Link to="./Register">Register</Link></button>
-            </form>
+                    <label>Password</label>
+                    <input placeholder="password" type="password" name="password" value={password} onChange={e=> setPassword(e.target.value)} />
+
+                    <button className="LoginButton3" type="submit">Login</button> 
+                    </div>  
+                </form>
+            </div>
         </div>
     )
 }

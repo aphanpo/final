@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 
 // action definitions
-const GET_SHELTERS= "shelt/GET_SHELTERS"
+const GET_SHELTERS= "shelter/GET_SHELTERS"
 
 // initial state
 const initialState = {
@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
 }
 
 // action creators
-const getHouse = () => {
+const getShelts = () => {
   return dispatch => {
     axios.get('/shelters').then(resp => {
       dispatch({
@@ -33,12 +33,12 @@ const getHouse = () => {
 }
 
 // custom hooks
-export function useHouse() {
-  const shelters = useSelector(appState => appState.sheltState.shelters)
+export function useShelts() {
+  const shelters = useSelector(appState => appState.shelterState.shelters)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getHouse())
+    dispatch(getShelts())
   }, [dispatch])
 
   return { shelters }

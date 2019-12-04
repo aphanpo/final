@@ -25,20 +25,145 @@ code {
     monospace;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+}
 
-.register {
+.homepage {
+  width: 1200px;
+  margin: auto;
+  display: flex;
+}
+
+.homeheader {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 350px;
+}
+
+.register, .login {
   width: 1200px;
   margin: auto;
   /* border: 1px solid black; */
+}
+
+.registerHeader, .loginHeader {
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .registerForm {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 800px;
+  width: 1200px;
   margin: auto;
   border: 1px solid black;
   padding: 10px;
+}
 
+.loginForm {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  padding: 10px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+
+input {
+  margin-bottom: 10px;
+  margin-top: 5px;
+  height: 25px;
+}
+
+.inputBed {
+  width: 40px;
+  height: 30px;
+  font-size: 16px;
+}
+
+.inputBed::placeholder {
+  text-align: center;
+}
+
+.LoginButton2 {
+  width: 60px;
+  height: 25px;
+  color: white;
+  background: green;
+}
+
+.shelterInfo, .loginPart {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.loginPart >input {
+  width: 500px;
+}
+
+.acct {
+  font-size: 25px;
+}
+
+.HomeButton > a{
+  font-size: 50px;
+}
+
+.choices {
+  width: 70px;
+  height: 25px;
+}
+
+.RegisterButton2 {
+  width: 120px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  margin: auto;
+  margin-top: 20px;
+  padding-left: 23px;
+}
+
+.LoginButton3 {
+  width: 250px;
+  display: flex;
+  margin: auto;
+  padding-left: 103px;
+  font-weight: bold;
+  height: 30px;
+  font-size: 18px;
+  margin-top: 20px;
+  background-color: green;
+  color: white;
+}
+
+.mainbuttons:hover, .mainbuttons>a:hover {
+  background-color: green;
+  color: white;
+}
+
+.mainbuttons {
+  height: 30px;
+}
+
+.box {
+  text-align: center;
 }

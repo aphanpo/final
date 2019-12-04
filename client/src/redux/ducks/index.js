@@ -1,2 +1,2 @@
 export { default as authState } from "./auth"
-export { default as sheltState } from "./shelt"
+export { default as shelterState } from "./shelters"

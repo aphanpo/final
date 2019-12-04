@@ -10,13 +10,16 @@ router.post('/register', (req, res, next) => {
   const salt = uuid()
   const name = req.body.name
   const password = sha512(req.body.password + salt)
+  const email = req.body.email
   const address = req.body.address
   const bed_option = req.body.bed_option
+  const open_beds = req.body.open_beds
   const total_beds = req.body.total_beds
+  const meal_option = req.body.meal_option
 
-  const sql = `INSERT INTO shelters (name, password, salt, address, bed_option, total_beds) VALUE (?, ?, ?, ?, ?, ?)`
+  const sql = `INSERT INTO shelters (name, password, salt, address, email, bed_option, open_beds, total_beds, meal_option) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?)`
   
-  db.query(sql, [name, password, salt, address, bed_option, total_beds], (err, results, fields) => {
+  db.query(sql, [name, password, salt, address, email, bed_option, open_beds, total_beds, meal_option], (err, results, fields) => {
     if (err) {
       throw new Error(err)
     }
@@ -32,13 +35,15 @@ router.post('/register', (req, res, next) => {
     const name = req.body.name
     const address = req.body.address
     const bed_option = req.body.bed_option
+    const open_beds = req.body.open_beds
     const total_beds = req.body.total_beds
+    const meal_option = req.body.meal_option
 
     const sql = `
-      SELECT * FROM shelters WHERE name = ? AND address = ? AND bed_option = Y AND total_beds = ?
+      SELECT * FROM shelters WHERE name = ? AND address = ? AND bed_option = ? AND open_beds =? AND total_beds = ? AND meal_option = ?
     `
 
-    db.query(sql, [name, address, bed_option, total_beds], (err, results, fields) => {
+    db.query(sql, [name, address, bed_option, open_beds, total_beds, meal_option], (err, results, fields) => {
       if (err) {
         throw new Error(err)
       }

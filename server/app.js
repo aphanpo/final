@@ -2,6 +2,7 @@ const createError = require("http-errors")
 const express = require("express")
 const userRouter = require("./routes/users")
 const protectedRouter = require('./routes/protected')
+const shelterRouter = require('./routes/shelterRouter')
 const jwt = require('express-jwt')
 const app = express()
 const config = require('config')
@@ -10,6 +11,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 app.use("/", userRouter)
+app.use("/shelters", shelterRouter)
 app.use('/', jwt({secret: config.get('secret')}), protectedRouter)
 
 // catch 404 and forward to error handler
