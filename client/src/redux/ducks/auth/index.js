@@ -32,9 +32,9 @@ export default (state = initialState, action) => {
     }
 }
 
-function register(name, password, address, email, bed_option, total_beds, meal_option, dispatch) {
+function register(name, password, address, email, bed_option, open_beds, total_beds, meal_option, dispatch) {
     return new Promise((resolve, reject) => {
-        axios.post("/register", { name, password, address, email, bed_option, total_beds, meal_option }).then(resp => {
+        axios.post("/register", { name, password, address, email, bed_option, open_beds, total_beds, meal_option }).then(resp => {
             login(name, password, dispatch).then( ()=> {
                 resolve()
             })
@@ -101,6 +101,7 @@ function logout () {
 }
 
 export function useAuth() {
+    const id = useSelector(appState => appState.authState.id)
     const name = useSelector(appState => appState.authState.name)
     const address = useSelector(appState => appState.authState.address)
     const bed_option = useSelector(appState => appState.authState.bed_option)
@@ -124,5 +125,5 @@ export function useAuth() {
     }, [dispatch])
 
 
-    return  { isAuthenticated, name, signin, signout, logout, reg, total_beds, bed_option, address, shelter, meal_option, open_beds }
+    return  { isAuthenticated, id, name, signin, signout, logout, reg, total_beds, bed_option, address, shelter, meal_option, open_beds }
 }

@@ -7,21 +7,22 @@ export default props => {
     const { shelters } = useShelts()
 
     return (
-        <div>
-            <div>
+        <div className="shelterPage">
+            <div className="shelterHeader">
                 <div className="HomeButton">
                     <Link to="/"><Icon icon="home"> Home </Icon></Link>
                 </div>
-                <h1> List of Available Shelters </h1>
+                <p className="acct1"> List of Available Shelters </p>
             </div>
             
             {shelters.map(shelter => (
-                <>
-                    <h2>{shelter.name}</h2>
-                    <p>Address: {shelter.address}</p>
+                <div className="shelterList">
+                    <h3>{shelter.name}</h3>
+                    <p>Location: {shelter.address}</p>
                     <p>Beds Available: {shelter.open_beds} out of {shelter.total_beds} </p>
-                    <p>Meals Available: {shelter.meal_option}</p>
-                </>
+                    <p className="last">Meals Available: {shelter.meal_option} <button><Link to="/Reservation/id"> Reserve a bed</Link></button></p>
+                    
+                </div>
             ))}
         </div>
     )

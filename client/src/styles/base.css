@@ -49,18 +49,24 @@ a {
   width: 350px;
 }
 
-.register, .login {
+.register, .login, .shelterPage {
   width: 1200px;
   margin: auto;
   /* border: 1px solid black; */
 }
 
-.registerHeader, .loginHeader {
+.registerHeader, .loginHeader{
   width: 1200px;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.shelterHeader {
+  width: 1200px;
+  display: flex;
+  align-items: center;
 }
 
 .registerForm {
@@ -118,8 +124,13 @@ input {
   width: 500px;
 }
 
-.acct {
+.acct, .acct1 {
   font-size: 25px;
+}
+
+.acct1 {
+  text-align: center;
+  padding-left: 30px;
 }
 
 .HomeButton > a{
@@ -166,4 +177,16 @@ input {
 
 .box {
   text-align: center;
+}
+
+.shelterList {
+  border: 1px dashed black;
+  width: 500px;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.last {
+  display: flex;
+  justify-content: space-between;
 }

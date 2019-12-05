@@ -10,7 +10,7 @@ export default props => {
         <h1 className="homeheader">Are You ...</h1>
         <div className="homepage">
             <div className="box">
-                <p>... in need a bed for tonight? <br /> Click on the button below to find available shelters.</p>
+                <p>... in need of a bed for tonight? <br /> Click on the button below to find available shelters.</p>
                 <button className="mainbuttons FindShelter"><Link to="./ShelterList">FIND SHELTERS</Link></button>
             </div>
             

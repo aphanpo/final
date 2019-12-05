@@ -6,23 +6,23 @@ import { useShelts } from '../hooks'
 
 
 export default props => {
-    const { name, signout} = useAuth()
+    const { id, signout} = useAuth()
     const { shelters } = useShelts()
+
+    let currentShelter = {};
+    if (shelters) {
+        currentShelter = shelters.find(shelter => shelter.id === id) || {};
+    }
 
     return (
         <div>
             <div className="HomeButton">
                 <Link to="/"><Icon icon="home"> Home </Icon></Link>
             </div>
-            
 
-            {shelters.map(shelter => (
-                <>
-                    <h1>Welcome {name}!</h1>
-                    <p>Your address is {shelter.address}</p>
-                    <p>You have {shelter.total_beds} beds total!</p>
-                </>
-            ))}
+            <h1>Welcome {currentShelter.name}!</h1>
+            <p>Your address is {currentShelter.address}</p>
+            <p>You have {currentShelter.total_beds} beds total!</p>
             
             <button onClick={e => signout()}><Link to="/">Sign Out</Link></button>
         </div>
