@@ -10,6 +10,7 @@ router.post('/register', (req, res, next) => {
   const salt = uuid()
   const name = req.body.name
   const password = sha512(req.body.password + salt)
+  const phone = req.body.phone
   const email = req.body.email
   const address = req.body.address
   const bed_option = req.body.bed_option
@@ -17,9 +18,9 @@ router.post('/register', (req, res, next) => {
   const total_beds = req.body.total_beds
   const meal_option = req.body.meal_option
 
-  const sql = `INSERT INTO shelters (name, password, salt, address, email, bed_option, open_beds, total_beds, meal_option) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?)`
+  const sql = `INSERT INTO shelters (name, password, salt, address, phone, email, bed_option, open_beds, total_beds, meal_option) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
   
-  db.query(sql, [name, password, salt, address, email, bed_option, open_beds, total_beds, meal_option], (err, results, fields) => {
+  db.query(sql, [name, password, salt, address, phone, email, bed_option, open_beds, total_beds, meal_option], (err, results, fields) => {
     if (err) {
       throw new Error(err)
     }
@@ -31,19 +32,39 @@ router.post('/register', (req, res, next) => {
   })
 })
 
+router.post('/reservation', (req, res, next) => {
+  const name = req.body.name
+  const first_name = req.body.first_name
+  const last_name = req.body.last_name
+
+  const sql = `INSERT INTO reservations (name, first_name, last_name) VALUE (?, ?, ?)`
+
+  db.query(sql, [name, first_name, last_name], (err, results, fields) => {
+    if (err) {
+      throw new Error(err)
+    }
+
+    res.json({
+      message: 'Reservation created',
+      results
+    })
+  })
+})
+
   router.post('/shelter', (req, res, next) => {
     const name = req.body.name
     const address = req.body.address
+    const phone = req.body.phone
     const bed_option = req.body.bed_option
     const open_beds = req.body.open_beds
     const total_beds = req.body.total_beds
     const meal_option = req.body.meal_option
 
     const sql = `
-      SELECT * FROM shelters WHERE name = ? AND address = ? AND bed_option = ? AND open_beds =? AND total_beds = ? AND meal_option = ?
+      SELECT * FROM shelters WHERE name = ? AND address = ? AND phone = ? AND bed_option = ? AND open_beds =? AND total_beds = ? AND meal_option = ?
     `
 
-    db.query(sql, [name, address, bed_option, open_beds, total_beds, meal_option], (err, results, fields) => {
+    db.query(sql, [name, address, phone, bed_option, open_beds, total_beds, meal_option], (err, results, fields) => {
       if (err) {
         throw new Error(err)
       }

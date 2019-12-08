@@ -5,8 +5,7 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
-
-  
+  background-color: #CCC;
 }
 
 body {
@@ -16,8 +15,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  
 }
 
 code {
@@ -49,10 +46,30 @@ a {
   width: 350px;
 }
 
-.register, .login, .shelterPage {
+.box3 {
+  margin-top: 17px;
+}
+
+.register, .login, .shelterPage, .reservation {
   width: 1200px;
   margin: auto;
   /* border: 1px solid black; */
+}
+
+.shelterPage {
+  display: flex;
+  flex-direction: column;
+}
+
+.GoogleMap {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  margin-top: 20px;
+  margin:auto;
 }
 
 .registerHeader, .loginHeader{
@@ -79,7 +96,7 @@ a {
   padding: 10px;
 }
 
-.loginForm {
+.loginForm, .reservationForm {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
@@ -95,33 +112,38 @@ input {
   margin-bottom: 10px;
   margin-top: 5px;
   height: 25px;
+  background-color: white;
+  font-size: 14px;
 }
 
 .inputBed {
   width: 40px;
   height: 30px;
   font-size: 16px;
+  background-color: white;
 }
 
 .inputBed::placeholder {
   text-align: center;
 }
 
-.LoginButton2 {
-  width: 60px;
+.LoginButton2, .LoginButton2>a {
+  width: 70px;
   height: 25px;
   color: white;
   background: green;
+  font-size: 15px;
 }
 
-.shelterInfo, .loginPart {
+.shelterInfo, .loginPart, .reservationPart {
   display: flex;
   flex-direction: column;
   padding-top: 10px;
 }
 
-.loginPart >input {
+.loginPart >input, .reservationPart >input, .shelterInfo >input {
   width: 500px;
+  height: 30px;
 }
 
 .acct, .acct1 {
@@ -130,7 +152,7 @@ input {
 
 .acct1 {
   text-align: center;
-  padding-left: 30px;
+  padding-left: 310px;
 }
 
 .HomeButton > a{
@@ -140,20 +162,23 @@ input {
 .choices {
   width: 70px;
   height: 25px;
+  background-color: white;
 }
 
 .RegisterButton2 {
-  width: 120px;
+  width: 250px;
   height: 30px;
   font-weight: bold;
   font-size: 18px;
   display: flex;
   margin: auto;
   margin-top: 20px;
-  padding-left: 23px;
+  padding-left: 88px;
+  background-color: green;
+  color: white;
 }
 
-.LoginButton3 {
+.LoginButton3, .resButton2 {
   width: 250px;
   display: flex;
   margin: auto;
@@ -166,13 +191,31 @@ input {
   color: white;
 }
 
+.resButton2 {
+  width: 270px;
+}
+
 .mainbuttons:hover, .mainbuttons>a:hover {
   background-color: green;
   color: white;
 }
 
+.mainbuttons, .mainbuttons>a {
+  height: 50px;
+  background-color: green;
+  color: white;
+  outline: none;
+}
+
 .mainbuttons {
-  height: 30px;
+  border: none;
+  font-size: 18px;
+}
+
+.resButton, .resButton>a, .LogOut {
+  background-color: green;
+  color: white;
+  padding: 5px;
 }
 
 .box {
@@ -183,10 +226,20 @@ input {
   border: 1px dashed black;
   width: 500px;
   padding: 10px;
-  margin-bottom: 5px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .last {
   display: flex;
   justify-content: space-between;
+}
+
+.otherShelterList {
+  margin: auto;
+  padding-left: 40px;
+  padding-top: 5px;
+  width: 500px;
+  
 }

@@ -5,8 +5,9 @@ import ShelterList from './ShelterList'
 import CheckLogin from './CheckLogin'
 import Login from './Login'
 import Register from './Register'
-import AboutMe from './AboutMe'
+import Profile from './Profile'
 import Reservation from './Reservation'
+import Submission from './Submission'
 
 function App() {
 
@@ -19,9 +20,10 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/CheckLogin" component={CheckLogin} />
           <Route exact path="/ShelterList" component={ShelterList} />
-          <Route exact path="/Reservation/:id" component={Reservation} />
+          <Route exact path="/Reservation" component={Reservation} />
+          <Route exact path="/Submission" component={Submission} />
           <Route exact path="/Register" component={Register} />
-          <Route exact path="/AboutMe" component={AboutMe} />
+          <Route exact path="/Profile" component={Profile} />
         </Switch>
       </Router>
     </div>

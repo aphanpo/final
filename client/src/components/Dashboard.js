@@ -8,7 +8,7 @@ export default props => {
     return (
         <div>
             <h1>Hello {username}!</h1>
-            <Link to="/about">About Me</Link>
+            <Link to="/profile">About Me</Link>
             <button onClick={e => signout()}>Sign Out</button>
         </div>
         

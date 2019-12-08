@@ -32,12 +32,23 @@ export default (state = initialState, action) => {
     }
 }
 
-function register(name, password, address, email, bed_option, open_beds, total_beds, meal_option, dispatch) {
+function register(name, password, address, phone, email, bed_option, open_beds, total_beds, meal_option, dispatch) {
     return new Promise((resolve, reject) => {
-        axios.post("/register", { name, password, address, email, bed_option, open_beds, total_beds, meal_option }).then(resp => {
+        axios.post("/register", { name, password, address, phone, email, bed_option, open_beds, total_beds, meal_option }).then(resp => {
             login(name, password, dispatch).then( ()=> {
                 resolve()
             })
+        })
+        .catch(e => {
+            reject()
+        })
+    })
+}
+
+function reservation(name, first_name, last_name) {
+    return new Promise((resolve, reject) => {
+        axios.post("/reservation", { name, first_name, last_name }).then(resp => {
+            resolve()
         })
         .catch(e => {
             reject()
@@ -80,6 +91,12 @@ function login(name, password, dispatch) {
                 type: LOGIN_SUCCESS,
                 payload: name
             })
+            // axios.get(`/userInfo/:${name}`).then(resp => {
+            //   dispatch({
+            //     type: GET_USERINFO,
+            //     payload: resp.data
+            //   })
+            //})
             resolve()
         })
         .catch(e => {
@@ -105,6 +122,7 @@ export function useAuth() {
     const name = useSelector(appState => appState.authState.name)
     const address = useSelector(appState => appState.authState.address)
     const bed_option = useSelector(appState => appState.authState.bed_option)
+    const phone = useSelector(appState => appState.authState.phone)
     const total_beds = useSelector(appState => appState.authState.total_beds)
     const open_beds = useSelector(appState => appState.authState.open_beds)
     const meal_option = useSelector(appState => appState.authState.meal_option)
@@ -114,8 +132,12 @@ export function useAuth() {
         dispatch({type: LOGIN_PENDING})
         return login(name, password, dispatch)
     }
-    const reg = (name, password, address, email, bed_option, open_beds, total_beds, meal_option) => {
-        return register(name, password, address, email, bed_option, open_beds, total_beds, meal_option, dispatch)
+    const reg = (name, password, address, phone, email, bed_option, open_beds, total_beds, meal_option) => {
+        return register(name, password, address, phone, email, bed_option, open_beds, total_beds, meal_option, dispatch)
+    }
+
+    const res = (name, first_name, last_name) => {
+        return reservation(name, first_name, last_name)
     }
     const signout = () => dispatch({type: LOGOUT})
 
@@ -125,5 +147,5 @@ export function useAuth() {
     }, [dispatch])
 
 
-    return  { isAuthenticated, id, name, signin, signout, logout, reg, total_beds, bed_option, address, shelter, meal_option, open_beds }
+    return  { isAuthenticated, name, signin, signout, logout, reg, phone, total_beds, bed_option, address, shelter, meal_option, open_beds, res }
 }

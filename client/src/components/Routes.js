@@ -1,13 +1,13 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import Dashboard from './Dashboard'
-import AboutMe from './AboutMe'
+import Profile from './Profile'
 
 export default props => {
     return (
         <>
             <Route path="/" component={Dashboard} />
-            <Route path="/about" component={AboutMe} />
+            <Route path="/profile" component={Profile} />
         </>
     )
 }
