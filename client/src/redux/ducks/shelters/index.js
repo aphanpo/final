@@ -6,13 +6,12 @@ import axios from 'axios'
 // action definitions
 const GET_SHELTERS = "shelter/GET_SHELTERS"
 const GET_OTHER_SHELTERS = "shelter/GET_OTHER_SHELTERS"
-const GET_BED_COUNT = "shelter/GET_BED_COUNT"
+const CHANGE_BED_COUNT = "shelter/GET_BED_COUNT"
 
 // initial state
 const initialState = {
   shelters: [],
-  other_shelters: [],
-  bed_count: []
+  other_shelters: []
 }
 
 // reducer
@@ -22,8 +21,13 @@ export default (state = initialState, action) => {
       return { ...state, shelters: action.payload }
     case GET_OTHER_SHELTERS:
       return { ...state, other_shelters: action.payload}
-    case GET_BED_COUNT:
-      return { ...state, bed_count: action.payload}
+    case CHANGE_BED_COUNT:
+      return { ...state, shelters: state.shelters.map(item => {
+        if(item.id === action.id){
+          item.open_beds = item.open_beds -1
+        }
+        return item
+      })}
     default:
       return state
   }
@@ -41,15 +45,18 @@ const getShelts = () => {
   }
 }
 
-function getBedCount(){
+function getBedCount(id){
   return dispatch => {
-    axios.get('/bedcount').then(resp => {
       dispatch({
-        type: GET_BED_COUNT,
-        payload: resp.data
+        type: CHANGE_BED_COUNT,
+        id:id
       })
-    })
   }
+}
+export function reduceBedCount(id, openBeds) {
+  axios.get('/shelters/reduce_bed_count?id=' + id + '&beds=' + openBeds).then(resp => {
+    //sdjafksldfj
+  })
 }
 
  
@@ -67,13 +74,13 @@ function getOtherShelts() {
 export function useShelts() {
   const shelters = useSelector(appState => appState.shelterState.shelters)
   const other_shelters = useSelector(appState => appState.shelterState.other_shelters)
-  const bed_count = useSelector(appState => appState.shelterState.bed_count)
+  const bed_count = id => dispatch(getBedCount(id))
   const dispatch = useDispatch()
+
   
   useEffect(() => {
     dispatch(getShelts())
     dispatch(getOtherShelts())
-    dispatch((getBedCount()))
   }, [dispatch])
 
 

@@ -32,9 +32,9 @@ export default (state = initialState, action) => {
     }
 }
 
-function register(name, password, address, phone, email, bed_option, open_beds, total_beds, meal_option, dispatch) {
+function register(name, password, address, phone, email, days_open, hours_open, hours_closed, bed_option, open_beds, total_beds, meal_option, dispatch) {
     return new Promise((resolve, reject) => {
-        axios.post("/register", { name, password, address, phone, email, bed_option, open_beds, total_beds, meal_option }).then(resp => {
+        axios.post("/register", { name, password, address, phone, email, days_open, hours_open, hours_closed, bed_option, open_beds, total_beds, meal_option }).then(resp => {
             login(name, password, dispatch).then( ()=> {
                 resolve()
             })
@@ -45,9 +45,9 @@ function register(name, password, address, phone, email, bed_option, open_beds, 
     })
 }
 
-function reservation(name, first_name, last_name) {
+function reservation(shelter_name, first_name, last_name, Gender) {
     return new Promise((resolve, reject) => {
-        axios.post("/reservation", { name, first_name, last_name }).then(resp => {
+        axios.post("/reservation", { shelter_name, first_name, last_name, Gender }).then(resp => {
             resolve()
         })
         .catch(e => {
@@ -56,9 +56,9 @@ function reservation(name, first_name, last_name) {
     })
 }
 
-function shelter(name, address, bed_option, open_beds, total_beds, meal_option) {
+function shelter(name, address, days_open, hours_open, hours_closed, bed_option, open_beds, total_beds, meal_option) {
     return new Promise((resolve, reject) => {
-        axios.get("/shelters", {name, address, bed_option, open_beds, total_beds, meal_option}).then(resp => {
+        axios.get("/shelters", {name, address, days_open, hours_open, hours_closed, bed_option, open_beds, total_beds, meal_option}).then(resp => {
             resolve()
         })
         .catch(e => {
@@ -81,6 +81,7 @@ function getTotalBeds(name)  {
 function login(name, password, dispatch) {
     return new Promise((resolve, reject) => {
         axios.post("/login", { name, password }).then(resp => {
+            
             // getTotalBeds(name).then( () => {
             //     resolve()
             // })
@@ -123,6 +124,9 @@ export function useAuth() {
     const address = useSelector(appState => appState.authState.address)
     const bed_option = useSelector(appState => appState.authState.bed_option)
     const phone = useSelector(appState => appState.authState.phone)
+    const days_open = useSelector(appState => appState.authState.days_open)
+    const hours_open = useSelector(appState => appState.authState.hours_open)
+    const hours_closed = useSelector(appState => appState.authState.hours_closed)
     const total_beds = useSelector(appState => appState.authState.total_beds)
     const open_beds = useSelector(appState => appState.authState.open_beds)
     const meal_option = useSelector(appState => appState.authState.meal_option)
@@ -132,12 +136,12 @@ export function useAuth() {
         dispatch({type: LOGIN_PENDING})
         return login(name, password, dispatch)
     }
-    const reg = (name, password, address, phone, email, bed_option, open_beds, total_beds, meal_option) => {
-        return register(name, password, address, phone, email, bed_option, open_beds, total_beds, meal_option, dispatch)
+    const reg = (name, password, address, phone, email, days_open, hours_open, hours_closed, bed_option, open_beds, total_beds, meal_option) => {
+        return register(name, password, address, phone, email, days_open, hours_open, hours_closed, bed_option, open_beds, total_beds, meal_option, dispatch)
     }
 
-    const res = (name, first_name, last_name) => {
-        return reservation(name, first_name, last_name)
+    const res = (shelter_name, first_name, last_name, Gender) => {
+        return reservation(shelter_name, first_name, last_name, Gender)
     }
     const signout = () => dispatch({type: LOGOUT})
 
@@ -147,5 +151,5 @@ export function useAuth() {
     }, [dispatch])
 
 
-    return  { isAuthenticated, name, signin, signout, logout, reg, phone, total_beds, bed_option, address, shelter, meal_option, open_beds, res }
+    return  { isAuthenticated, name, signin, signout, logout, reg, phone, total_beds, bed_option, address, shelter, meal_option, open_beds, res, days_open, hours_open, hours_closed }
 }

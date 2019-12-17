@@ -17,10 +17,13 @@ router.post('/register', (req, res, next) => {
   const open_beds = req.body.open_beds
   const total_beds = req.body.total_beds
   const meal_option = req.body.meal_option
+  const days_open = req.body.days_open
+  const hours_open = req.body.hours_open
+  const hours_closed = req.body. hours_closed
 
-  const sql = `INSERT INTO shelters (name, password, salt, address, phone, email, bed_option, open_beds, total_beds, meal_option) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+  const sql = `INSERT INTO shelters (name, password, salt, address, phone, email, days_open, hours_open, hours_closed, bed_option, open_beds, total_beds, meal_option) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
   
-  db.query(sql, [name, password, salt, address, phone, email, bed_option, open_beds, total_beds, meal_option], (err, results, fields) => {
+  db.query(sql, [name, password, salt, address, phone, email, days_open, hours_open, hours_closed, bed_option, open_beds, total_beds, meal_option], (err, results, fields) => {
     if (err) {
       throw new Error(err)
     }
@@ -33,13 +36,15 @@ router.post('/register', (req, res, next) => {
 })
 
 router.post('/reservation', (req, res, next) => {
-  const name = req.body.name
+  const shelter_id = req.body.shelter_id
+  const shelter_name = req.body.shelter_name
   const first_name = req.body.first_name
   const last_name = req.body.last_name
+  const Gender = req.body.Gender
 
-  const sql = `INSERT INTO reservations (name, first_name, last_name) VALUE (?, ?, ?)`
+  const sql = `INSERT INTO reservations ( shelter_name, first_name, last_name, Gender) VALUE ( ?, ?, ?, ?)`
 
-  db.query(sql, [name, first_name, last_name], (err, results, fields) => {
+  db.query(sql, [ shelter_name, first_name, last_name, Gender], (err, results, fields) => {
     if (err) {
       throw new Error(err)
     }
@@ -55,16 +60,19 @@ router.post('/reservation', (req, res, next) => {
     const name = req.body.name
     const address = req.body.address
     const phone = req.body.phone
+    const days_open = req.body.days_open
+    const hours_open = req.body.hours_open
+    const hours_closed = req.body.hours_closed
     const bed_option = req.body.bed_option
     const open_beds = req.body.open_beds
     const total_beds = req.body.total_beds
     const meal_option = req.body.meal_option
 
     const sql = `
-      SELECT * FROM shelters WHERE name = ? AND address = ? AND phone = ? AND bed_option = ? AND open_beds =? AND total_beds = ? AND meal_option = ?
+      SELECT * FROM shelters WHERE name = ? AND address = ? AND phone = ? AND days_open = ? AND hours_open = ? AND hours_closed = ? AND bed_option = ? AND open_beds =? AND total_beds = ? AND meal_option = ?
     `
 
-    db.query(sql, [name, address, phone, bed_option, open_beds, total_beds, meal_option], (err, results, fields) => {
+    db.query(sql, [name, address, phone, days_open, hours_open, hours_closed, bed_option, open_beds, total_beds, meal_option], (err, results, fields) => {
       if (err) {
         throw new Error(err)
       }
@@ -85,12 +93,12 @@ router.post('/reservation', (req, res, next) => {
         password = sha512(password + results[0].salt)
 
         const sql = `
-        SELECT count(1) as count FROM shelters WHERE name = ? AND password = ?
+        SELECT * FROM shelters WHERE name = ? AND password = ?
         `
 
         db.query(sql, [name, password], (err, results, fields) => {
-          if (results[0].count > 0) {
-            const token = jwt.sign({ name }, config.get('secret'))
+          if (results.length > 0) {
+            const token = jwt.sign({ name: name, id: results[0].id }, config.get('secret'))
 
             res.json({
               message: 'Authenticated',
