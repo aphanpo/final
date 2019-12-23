@@ -5,7 +5,6 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
-  /* background-color: #CCC; */
 }
 
 body {
@@ -15,6 +14,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: #CCC;
 }
 
 code {
@@ -73,8 +74,8 @@ button {
 .register, .login, .shelterPage, .reservation, .submitPage {
   width: 1600px;
   margin: auto;
-  /* margin-bottom: 30px; */
-  background-color: #CCC;
+  margin-bottom: 30px;
+  /* background-color: #CCC; */
   /* border: 1px solid black; */
 }
 
@@ -147,11 +148,12 @@ button {
   font-size: 18px;
   overflow: scroll;
   height: 800px;
-  background-color: #CCC;
+  background-color: transparent;
 }
 
 .registerForm:hover, .loginForm:hover, .reservationForm:hover, .submission:hover {
   border: 3px solid green;
+  background-color: #CCC;
 }
 
 .submission {
@@ -472,6 +474,22 @@ input:hover {
   background-position: center;
 }
 
-.HomeBackgroundOverlay {
+.HomeBackgroundOverlay, .RegisterBackgroundOverlay {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.SubmissionBackgroundOverlay {
   background-color: rgba(255, 255, 255, 0.6);
+}
+
+.RegisterBackgroundImage {
+  background-image: url(https://images.pexels.com/photos/265702/pexels-photo-265702.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
+  background-size: cover;
+  background-position: center;
+}
+
+.SubmissionBackgroundImage {
+  background-image: url(https://images.pexels.com/photos/212269/pexels-photo-212269.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
+  background-size: cover;
+  background-position: center;
 }

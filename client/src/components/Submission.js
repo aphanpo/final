@@ -6,6 +6,9 @@ import moment from 'moment'
 const currentDay = moment().format('LL')
 function SubmitPage(props) {
     return (
+        <>
+        <div className="HomeBackgroundPostiion SubmissionBackgroundImage" />
+        <div className="HomeBackgroundPostiion SubmissionBackgroundOverlay" />
         <div className="SubmitPage">
             <div className="submitHeader">
                 <p><Link to="/ShelterList"><Icon icon="arrow-left"></Icon> Back to Shelter List</Link></p>
@@ -26,6 +29,7 @@ function SubmitPage(props) {
                 </ol>
             </div>
         </div>
+        </>
     )
 }
 

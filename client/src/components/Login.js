@@ -36,6 +36,9 @@ export default props => {
     }
 
     return (
+        <>
+        <div className="HomeBackgroundPostiion HomeBackgroundImage" />
+        <div className="HomeBackgroundPostiion HomeBackgroundOverlay" />
         <div className="login">
             <div className="loginHeader">
                 <div className="HomeButton">
@@ -61,5 +64,6 @@ export default props => {
                 </form>
             </div>
         </div>
+        </>
     )
 }

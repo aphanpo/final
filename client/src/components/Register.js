@@ -55,6 +55,9 @@ export default props => {
     
 
     return (
+        <>
+        <div className="HomeBackgroundPostiion RegisterBackgroundImage" />
+        <div className="HomeBackgroundPostiion RegisterBackgroundOverlay" />
         <div className="register">
             <div className="registerHeader">
                 <div className="HomeButton">
@@ -201,5 +204,6 @@ export default props => {
                 </form>
             </div>    
         </div>
+        </>
     )
 }
