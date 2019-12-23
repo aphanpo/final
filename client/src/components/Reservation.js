@@ -4,7 +4,7 @@ import Icon from '../lib/Icon'
 import validator from 'validator'
 import { useAuth, useShelts } from '../hooks'
 import {reduceBedCount} from '../redux/ducks/shelters/'
-
+import moment from 'moment'
 
 function Form(props) {
   const [shelter_name, setShelter_Name] = useState('')
@@ -17,7 +17,8 @@ function Form(props) {
   const { res } = useAuth()
 
   const {bed_count} = useShelts()
-  
+  const currentDay = moment().format('LL')
+
 function handleSubmit(e){
   e.preventDefault()
   bed_count(props.match.params.id)
@@ -37,8 +38,8 @@ function handleSubmit(e){
 
 
   else if (!err) {
-    res(props.match.params.shelter, first_name, last_name, Gender).then(resp => {
-      reduceBedCount(props.match.params.id, props.location.state.open_beds)
+    res(currentDay, props.match.params.shelter, first_name, last_name, Gender, props.match.params.id).then(resp => {
+      //reduceBedCount(props.match.params.id, props.match.params.shelter, props.location.state.open_beds)
       props.history.push('/Submission')
     })
     
@@ -53,9 +54,9 @@ function handleSubmit(e){
             <div className="HomeButton">
                 <Link to="/"><Icon icon="home"> Home </Icon></Link>
             </div>
-            <p className="reservationTitle"> Skip the line and add your name to the list here. </p>
+            <p className="projectName">Beds For Hope</p>
         </div>
-        
+        <p className="reservationTitle"> Skip the line and add your name to the list here. </p>
         <div className="reservationForm">
           <p><b>- Required -</b></p>
           <form onSubmit={handleSubmit} >
@@ -69,6 +70,7 @@ function handleSubmit(e){
                 value={shelter_name}
                 /> */}
 
+            <div className="date">{currentDay}</div>
             <label className="error">{first_NameError}</label>
               <input 
                 className={setFirst_NameError === "" ? "" : "error"}
@@ -91,7 +93,6 @@ function handleSubmit(e){
                 <option value="Female">Female</option>
               </select>
             </label>
-
 
             <button  className="resButton2" type="submit">Submit</button> <br />
             <p><Link to="/ShelterList"><Icon icon="arrow-left"></Icon> Back to Shelter List</Link></p>

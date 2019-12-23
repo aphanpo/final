@@ -35,25 +35,35 @@ router.post('/register', (req, res, next) => {
   })
 })
 
+// router.get('/reservation/:date/:name', (req, res, next) => {
+//   const date = req.params.date
+//   const shelter_name = req.params.name
+//   const sql =  `
+//     SELECT * FROM reservations WHERE date = ? AND shelter_name = ?
+//     `
+
+//     db.query(sql, [date, shelter_name], (err, results, fields) => {
+//       res.json(results)
+// })
+// })
 router.post('/reservation', (req, res, next) => {
+  const date = req.body.date
   const shelter_id = req.body.shelter_id
-  const shelter_name = req.body.shelter_name
   const first_name = req.body.first_name
   const last_name = req.body.last_name
   const Gender = req.body.Gender
+  const shelter_name = req.body.shelter_name
 
-  const sql = `INSERT INTO reservations ( shelter_name, first_name, last_name, Gender) VALUE ( ?, ?, ?, ?)`
+  const sql = `INSERT INTO reservations ( date, shelter_name, first_name, last_name, Gender, shelter_id) VALUE ( ?, ?, ?, ?, ?, ?)`
 
-  db.query(sql, [ shelter_name, first_name, last_name, Gender], (err, results, fields) => {
+  db.query(sql, [ date, shelter_name, first_name, last_name, Gender, shelter_id ], (err, results, fields) => {
     if (err) {
       throw new Error(err)
-    }
-
-    res.json({
+    }res.json({
       message: 'Reservation created',
       results
     })
-  })
+    })
 })
 
   router.post('/shelter', (req, res, next) => {

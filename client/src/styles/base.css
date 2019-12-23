@@ -5,7 +5,7 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
-  background-color: #CCC;
+  /* background-color: #CCC; */
 }
 
 body {
@@ -37,14 +37,26 @@ button {
   margin: auto;
   display: flex;
   font-size: 30px;
+  background: transparent;
 }
 
 .homeheader {
   text-align: center;
-  margin-top: 150px;
+  margin-top: 120px;
   font-size: 90px;
   font-weight: bold;
   font-family: fantasy;
+}
+
+.projectName, .HomeprojectName {
+  font-size: 40px;
+  font-family: fantasy;
+  font-weight: bold;
+}
+
+.HomeprojectName {
+  text-align: center;
+  margin-top: 200px;
 }
 
 .box {
@@ -61,6 +73,8 @@ button {
 .register, .login, .shelterPage, .reservation, .submitPage {
   width: 1600px;
   margin: auto;
+  /* margin-bottom: 30px; */
+  background-color: #CCC;
   /* border: 1px solid black; */
 }
 
@@ -68,6 +82,7 @@ button {
   width: 1600px;
   display: flex;
   flex-direction: column;
+  background-color: #CCC;
 }
 
 .GoogleMap {
@@ -92,12 +107,26 @@ button {
   border-bottom: 1px solid black;
 }
 
-.shelterHeader, .registerHeader, .loginHeader, .reservationHeader{
+.registerHeader, .loginHeader, .reservationHeader{
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid black;
   margin-bottom: 40px;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+.shelterHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
 }
 
 .submitHeader {
@@ -110,11 +139,15 @@ button {
   align-items: center;
   width: 1200px;
   margin: auto;
-  margin-top: 70px;
+  margin-top: 30px;
+  /* margin-bottom: 0px; */
   border: 1px solid black;
   padding: 10px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
   font-size: 18px;
+  overflow: scroll;
+  height: 800px;
+  background-color: #CCC;
 }
 
 .registerForm:hover, .loginForm:hover, .reservationForm:hover, .submission:hover {
@@ -128,6 +161,7 @@ button {
   align-items: center;
   width: 600px;
   padding: 10px;
+  padding-bottom: 20px;
   margin: auto;
   margin-top: 70px;
 }
@@ -148,26 +182,62 @@ button {
   flex-direction: column;
   align-items: center;
   width: 600px;
-  height: 300px;
   padding: 10px;
-  padding-top: 45px;
+  padding-bottom: 40px;
   margin: auto;
-  margin-top: 70px;
+  margin-top: 40px;
   border: 1px solid black;
   font-size: 18px;
 }
 
-.profileSection {
-  width: 1200px;
+/* .profileSection {
   margin: auto;
   padding: 10px;
+} */
+
+.profileBed, .waitlist {
+  border: 1px solid black;
+  width: 400px;
+  /* height: 60px; */
+  padding: 20px;
+  text-align: center;
+  margin-top: 70px;
+}
+
+/* .waitlist {
+  border: 1px solid black;
+  width: 400px;
+  padding: 20px;
+  margin-top: 70px;
+} */
+
+.insideWaitlist {
+  display: flex;  
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.updateForm {
+  width: 650px;
+  border: 1px solid black;
+  padding: 20px;
+  margin-top: 70px;
+}
+
+.waitlistTitle {
+  border-bottom: 1px solid black;
+  text-align: center;
+  padding: 1px;
 }
 
 .welcome {
-  text-align: center;
+  text-align: right;
 }
 
-
+.welcome2 {
+  text-align: center;
+  font-size: 30px;
+}
 input {
   margin-bottom: 10px;
   margin-top: 5px;
@@ -211,19 +281,15 @@ input:hover {
   height: 30px;
 }
 
-.acct, .acct1 {
+/* .acct, .acct1 {
   font-size: 25px;
   font-weight: bold;
-}
+} */
 
-.shelterTitle, .registerTitle, .loginTitle, .reservationTitle, .submissionTitle {
+.shelterTitle, .registerTitle, .loginTitle, .reservationTitle, .submissionTitle, .profileTitle {
   text-align: center;
-  font-size: 40px;
+  font-size: 35px;
   font-family: 'Courier New', Courier, monospace;
-}
-
-.reservationTitle {
-  margin-right: 180px;
 }
 
 .RLbuttons, .RLbuttons > a {
@@ -243,7 +309,7 @@ input:hover {
 }
 
 .choices, .GenderChoice {
-  width: 75px;
+  width: 90px;
   height: 25px;
   background-color: white;
   font-size: 14px;
@@ -260,7 +326,7 @@ input:hover {
   font-size: 18px;
   display: flex;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 40px;
   padding-left: 88px;
   background-color: green;
   color: white;
@@ -301,10 +367,17 @@ input:hover {
   font-size: 18px;
 }
 
-.resButton, .resButton>a, .LogOut {
+.resButton, .resButton>a {
   background-color: green;
   color: white;
   padding: 5px;
+}
+
+.LogOut {
+  background-color: green;
+  color: white;
+  padding: 5px;
+  font-size: 18px
 }
 
 .box {
@@ -373,6 +446,32 @@ input:hover {
   margin-bottom: 0px;
 }
 
-.shelterResName {
+.shelterResName, .date {
   text-align: center;
+}
+
+.loginWhole {
+  width: 1200px;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.HomeBackgroundPostiion {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.HomeBackgroundImage {
+  background-image: url(https://images.pexels.com/photos/311391/pexels-photo-311391.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
+  background-size: cover;
+  background-position: center;
+}
+
+.HomeBackgroundOverlay {
+  background-color: rgba(255, 255, 255, 0.6);
 }

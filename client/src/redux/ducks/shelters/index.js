@@ -7,11 +7,12 @@ import axios from 'axios'
 const GET_SHELTERS = "shelter/GET_SHELTERS"
 const GET_OTHER_SHELTERS = "shelter/GET_OTHER_SHELTERS"
 const CHANGE_BED_COUNT = "shelter/GET_BED_COUNT"
+const POST_UPDATE = "shelter/POST_UPDATE"
 
 // initial state
 const initialState = {
   shelters: [],
-  other_shelters: []
+  other_shelters: [],
 }
 
 // reducer
@@ -28,6 +29,8 @@ export default (state = initialState, action) => {
         }
         return item
       })}
+    case POST_UPDATE:
+      return { ...state, shelters: action.payload}
     default:
       return state
   }
@@ -39,6 +42,19 @@ const getShelts = () => {
     axios.get('/shelters').then(resp => {
       dispatch({
         type: GET_SHELTERS,
+        payload: resp.data
+      })
+    })
+  }
+}
+
+const postUpdate = (updateAddress, phone, days_open, hours_open, hours_closed, bed_option, update_open_beds, total_beds, meal_option, name) => {
+  return dispatch => {
+    axios.put('/shelters/updating', {
+      updateAddress, phone, days_open, hours_open, hours_closed, bed_option, update_open_beds, total_beds, meal_option, name
+    }).then(resp => {
+      dispatch({
+        type: POST_UPDATE,
         payload: resp.data
       })
     })
@@ -75,6 +91,9 @@ export function useShelts() {
   const shelters = useSelector(appState => appState.shelterState.shelters)
   const other_shelters = useSelector(appState => appState.shelterState.other_shelters)
   const bed_count = id => dispatch(getBedCount(id))
+
+  const update = (updateAddress, phone, days_open, hours_open, hours_closed, bed_option, update_open_beds, total_beds, meal_option, name) => dispatch(postUpdate(updateAddress, phone, days_open, hours_open, hours_closed, bed_option, update_open_beds, total_beds, meal_option, name))
+
   const dispatch = useDispatch()
 
   
@@ -84,7 +103,7 @@ export function useShelts() {
   }, [dispatch])
 
 
-  return { shelters, other_shelters, bed_count }
+  return { shelters, other_shelters, bed_count, update}
 }
 
 // export function useOtherShelts() {

@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/Reservation/:shelter/:id" component={Reservation} />
           <Route exact path="/Submission" component={Submission} />
           <Route exact path="/Register" component={Register} />
-          <Route exact path="/Profile" component={Profile} />
+          <Route exact path="/Profile/:name" component={Profile} />
         </Switch>
       </Router>
     </div>

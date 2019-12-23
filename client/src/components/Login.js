@@ -3,14 +3,15 @@ import { useAuth } from '../hooks'
 import { Link } from 'react-router-dom'
 import Icon from '../lib/Icon'
 import validator from 'validator'
+import { useGuests} from "../hooks"
 
 export default props => {
     const [name, setName] = useState('')
     const [nameError, setNameError] = useState('Shelter Name')
     const [password, setPassword] = useState('')
     const [passwordError, setPasswordError] = useState('Password')
-    
     const { signin } = useAuth()
+    const { guestlist, people } = useGuests()
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -25,8 +26,9 @@ export default props => {
         }
 
         else if (!err){
-            signin(name, password).then(resp => {
-            props.history.push("/Profile")
+            signin( name, password).then(resp => {
+                // people()
+            props.history.push("/Profile/"+name)
             })
         }
 
@@ -39,11 +41,13 @@ export default props => {
                 <div className="HomeButton">
                 <Link to="/"><Icon icon="home"> Home </Icon></Link>
                 </div>
-                <p className="loginTitle"> Login to manage your account</p>
+                <p className="projectName">Beds For Hope</p>
                 <p>Don't have an account? <Link to="./Register"><button className="LoginButton2">Sign up</button></Link></p>
             </div>
-            
+
+            <p className="loginTitle"> Login to manage your account</p>
             <div className="loginForm">
+                <h1>Welcome back!</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="loginPart">
                     <label className="error">{nameError}</label>

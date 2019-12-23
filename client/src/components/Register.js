@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import Icon from '../lib/Icon'
 
 
-
 export default props => {
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
@@ -61,10 +60,10 @@ export default props => {
                 <div className="HomeButton">
                     <Link to="/"><Icon icon="home"> Home </Icon></Link>
                 </div>
-                <p className="registerTitle">Create an account now</p>
+                <p className="projectName">Beds For Hope</p>
                 <p>Already have an account? <Link to="./Login"><button className="LoginButton2">Login</button></Link></p>
             </div>
-
+            <p className="registerTitle">Create an account now</p>
             <div className="registerForm">  
                 <form onSubmit={handleSubmit}>
                     <div className="shelterInfo">
@@ -182,9 +181,9 @@ export default props => {
                                 <option value="No">No</option>
                             </select>      
                         
-                            <p> If yes, how many total beds does your shelter have? If no, please enter '0'. <input className="inputBed" placeholder="0" type="text" name="total_beds" value={total_beds} onChange={e=> setTotal_beds(e.target.value)} /></p>
+                            <p> If yes, how many total beds does your shelter have? <br/> If no, please enter '0'. <input className="inputBed" placeholder="0" type="text" name="total_beds" value={total_beds} onChange={e=> setTotal_beds(e.target.value)} /></p>
 
-                            <p>How many beds are currently available? If none, please enter '0'. <input className="inputBed" placeholder="0" type="text" name="open_beds" value={open_beds} onChange={e=> setOpen_beds(e.target.value)} /></p>
+                            <p>How many beds are currently available? <br /> If none, please enter '0'. <input className="inputBed" placeholder="0" type="text" name="open_beds" value={open_beds} onChange={e=> setOpen_beds(e.target.value)} /></p>
                         </div>
 
                         <div className="food">

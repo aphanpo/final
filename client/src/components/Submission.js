@@ -1,19 +1,20 @@
 import React from "react"
 import { Link } from 'react-router-dom'
 import Icon from '../lib/Icon'
+import moment from 'moment'
 
-
+const currentDay = moment().format('LL')
 function SubmitPage(props) {
     return (
         <div className="SubmitPage">
             <div className="submitHeader">
                 <p><Link to="/ShelterList"><Icon icon="arrow-left"></Icon> Back to Shelter List</Link></p>
-                <p className="submissionTitle">You've been added on the waitlist.</p>
+                <p className="projectName">Beds For Hope</p>
                 <div className="HomeButton">
                     <Link to="/"><Icon icon="home"> Home </Icon></Link>
                 </div>
-                
             </div>
+            <p className="submissionTitle">You've been added on the waitlist for <br /><br /> {props.match.params.shelter} <br /> on {currentDay}</p>
             <div className="submission">
                 <h1>Thank You</h1>
                 <p className="thanks">Some important reminders:</p>
