@@ -14,7 +14,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  color: white;
   background-color: #CCC;
 }
 
@@ -46,12 +46,14 @@ button {
   margin-top: 120px;
   font-size: 90px;
   font-weight: bold;
-  font-family: fantasy;
+  font-family: 'Girassol', cursive;
+
 }
 
 .projectName, .HomeprojectName {
-  font-size: 40px;
-  font-family: fantasy;
+  font-size: 50px;
+  font-family: 'Girassol', cursive;
+  
   font-weight: bold;
 }
 
@@ -71,7 +73,7 @@ button {
   margin-top: 35px;
 }
 
-.register, .login, .shelterPage, .reservation, .submitPage {
+.register, .login, .shelterPage {
   width: 1600px;
   margin: auto;
   margin-bottom: 30px;
@@ -79,11 +81,29 @@ button {
   /* border: 1px solid black; */
 }
 
+.submitPage {
+  width: 1600px;
+  margin: auto;
+  margin-bottom: 30px;
+  color: black;
+}
+
+.reservation {
+  width: 1600px;
+  margin: auto;
+  margin-bottom: 30px;
+  background-color: #CCC;
+  color: darkslategrey;
+}
+
 .shelterPage {
   width: 1600px;
   display: flex;
   flex-direction: column;
-  background-color: #CCC;
+  /* background-color: #cbd5f0; */
+  /* background-color: #e8b38c; */
+  background-color: lightsteelblue;
+  color: darkslateblue;
 }
 
 .GoogleMap {
@@ -121,6 +141,7 @@ button {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid black;
+  color: black;
 }
 
 .shelterHeader {
@@ -132,6 +153,7 @@ button {
 
 .submitHeader {
   justify-content: space-between;
+  color: black;
 }
 
 .registerForm {
@@ -166,6 +188,7 @@ button {
   padding-bottom: 20px;
   margin: auto;
   margin-top: 70px;
+  color: black;
 }
 
 .reservationForm {
@@ -204,6 +227,7 @@ button {
   padding: 20px;
   text-align: center;
   margin-top: 70px;
+  color: black;
 }
 
 /* .waitlist {
@@ -225,21 +249,25 @@ button {
   border: 1px solid black;
   padding: 20px;
   margin-top: 70px;
+  color: black;
 }
 
 .waitlistTitle {
   border-bottom: 1px solid black;
   text-align: center;
   padding: 1px;
+  color: black;
 }
 
 .welcome {
   text-align: right;
+  color: black;
 }
 
 .welcome2 {
   text-align: center;
   font-size: 30px;
+  color: black;
 }
 input {
   margin-bottom: 10px;
@@ -289,10 +317,24 @@ input:hover {
   font-weight: bold;
 } */
 
-.shelterTitle, .registerTitle, .loginTitle, .reservationTitle, .submissionTitle, .profileTitle {
+.shelterTitle, .loginTitle, .reservationTitle, .profileTitle {
   text-align: center;
   font-size: 35px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: fantasy;
+}
+
+.registerTitle {
+  text-align: center;
+  font-size: 35px;
+  font-family: fantasy;
+  font-weight: bold;
+}
+
+.submissionTitle {
+  text-align: center;
+  font-size: 35px;
+  font-family: fantasy;
+  color: black;
 }
 
 .RLbuttons, .RLbuttons > a {
@@ -404,10 +446,11 @@ input:hover {
 
 
 .shelterName {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 30px;
+  font-family: fantasy;
+
+  font-size: 35px;
   text-align: center;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .last {
@@ -432,7 +475,8 @@ input:hover {
   border-bottom: 1px solid black;
   font-size: 30px;
   text-align: center;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: fantasy;
+
 }
 
 .hoursOpen {
@@ -470,13 +514,13 @@ input:hover {
 }
 
 .HomeBackgroundImage {
-  background-image: url(https://images.pexels.com/photos/311391/pexels-photo-311391.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
+  background-image: url(https://images.pexels.com/photos/639078/pexels-photo-639078.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
   background-size: cover;
   background-position: center;
 }
 
-.HomeBackgroundOverlay, .RegisterBackgroundOverlay {
-  background-color: rgba(255, 255, 255, 0.8);
+.HomeBackgroundOverlay {
+  background-color: rgba(121, 74, 209, 0.3);
 }
 
 .SubmissionBackgroundOverlay {

@@ -14,6 +14,7 @@ export default props => {
     const currentDay = moment().format('LL')
     return (
         <div className="shelterPage">
+            {/* <link href="https://fonts.googleapis.com/css?family=Girassol&display=swap" rel="stylesheet"></link> */}
             <div className="shelterHeader">
                 <div className="HomeButton">
                     <Link to="/"><Icon icon="home"> Home </Icon></Link>
