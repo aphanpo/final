@@ -48,17 +48,36 @@ const getShelts = () => {
   }
 }
 
-const postUpdate = (updateAddress, phone, days_open, hours_open, hours_closed, bed_option, update_open_beds, total_beds, meal_option, name) => {
-  return dispatch => {
+// const postUpdate = (updateAddress, phone, days_open, hours_open, hours_closed, bed_option, update_open_beds, total_beds, meal_option, name) => {
+//   return dispatch => {
+//     axios.put('/shelters/updating', {
+//       updateAddress, phone, days_open, hours_open, hours_closed, bed_option, update_open_beds, total_beds, meal_option, name
+//     }).then(resp => {
+//       dispatch({
+//         type: POST_UPDATE,
+//         payload: resp.data
+//       })
+//       dispatch(getShelts())
+//     })
+//   }
+// }
+
+function postUpdate(updateAddress, phone, days_open, hours_open, hours_closed, bed_option, update_open_beds, total_beds, meal_option, name, dispatch) {
+  console.log(updateAddress, total_beds)
+  return new Promise((resolve, reject) => {
     axios.put('/shelters/updating', {
       updateAddress, phone, days_open, hours_open, hours_closed, bed_option, update_open_beds, total_beds, meal_option, name
-    }).then(resp => {
+    }).then(resp=> {
       dispatch({
         type: POST_UPDATE,
-        payload: resp.data
+        payload:resp.data
       })
+      resolve()
     })
-  }
+    .catch(e => {
+      reject()
+    })
+  })
 }
 
 function getBedCount(id){
@@ -92,7 +111,9 @@ export function useShelts() {
   const other_shelters = useSelector(appState => appState.shelterState.other_shelters)
   const bed_count = id => dispatch(getBedCount(id))
 
-  const update = (updateAddress, phone, days_open, hours_open, hours_closed, bed_option, update_open_beds, total_beds, meal_option, name) => dispatch(postUpdate(updateAddress, phone, days_open, hours_open, hours_closed, bed_option, update_open_beds, total_beds, meal_option, name))
+  const update = (updateAddress, phone, days_open, hours_open, hours_closed, bed_option, update_open_beds, total_beds, meal_option, name, dispatch) =>{
+    return postUpdate(updateAddress, phone, days_open, hours_open, hours_closed, bed_option, update_open_beds, total_beds, meal_option, name, dispatch)
+  } 
 
   const dispatch = useDispatch()
 

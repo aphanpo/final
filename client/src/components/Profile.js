@@ -15,11 +15,19 @@ export default props => {
     const currentDay = moment().format('LL')
     // const onething = props.match.params.id
     const currentLine = guestlist.filter(c => c.date === currentDay && c.shelter_name === name)
-    let currentShelter = {};
-    if (shelters) {
-        currentShelter = shelters.find(shelter => shelter.name === name) || {};
-    }
-    const currentShelterOpenBeds = currentShelter.open_beds - currentLine.length
+    
+    // let currentShelter = {};
+    // if (shelters) {
+    //     currentShelter = shelters.find(shelter => shelter.name === name) || {};
+    //     console.log(currentShelter)
+    //
+    const currentShelter = shelters.filter(e=> e.name == name) ? shelters.map(e=> e.open_beds) : ""
+    console.log(currentShelter)
+
+
+    const currentShelterOpenBeds = currentShelter - currentLine.length
+    console.log(currentShelter, currentLine.length)
+  
     
     const [updateAddress, setUpdateAddress] = useState('')
     const [phone, setPhone] = useState('')
@@ -60,7 +68,12 @@ export default props => {
             {days.push("Su")}
         const days_open=days.join(',')
 
-            update(updateAddress, phone, days_open, hours_open, hours_closed, bed_option, update_open_beds, total_beds, meal_option, name)
+            update(updateAddress, phone, days_open, hours_open, hours_closed, bed_option, update_open_beds, total_beds, meal_option, name).then(
+                signout(),
+                props.history.push('/')
+            )
+           
+           
   }
     
     
