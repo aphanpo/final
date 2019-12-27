@@ -34,13 +34,13 @@ CREATE TABLE `shelters` (
   `hours_open` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `hours_closed` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `bed_option` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `open_beds` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `total_beds` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `open_beds` int(10) DEFAULT NULL,
+  `total_beds` int(10) DEFAULT NULL,
   `meal_option` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,7 +49,7 @@ CREATE TABLE `shelters` (
 
 LOCK TABLES `shelters` WRITE;
 /*!40000 ALTER TABLE `shelters` DISABLE KEYS */;
-INSERT INTO `shelters` VALUES (1,'test1','0b5dca18b80e0c61c4bcde9421a87d576fb7ee356f6264f26a3de09f0a16ff8babdb511ac884c828285820ee8d23138d33f5626dc9541d98f20450f9f4e93938','f6cd595e-d165-4cb7-b095-bd134f9c6112','23456','(59358)50','test1@test.com','Mo,Fr,Sa,Su','24 Hours','12:00 am','Yes',NULL,'45','Yes'),(2,'test2','f45d061ce73c612a6a2ae88e072386352459e82bb979ff79a83d8e3abff88a30eded32167593a168fc169df7142c674a18551a07fa1e958f005a5ecbb901369c','6fbb8a96-e127-4ea8-820f-12777ea27500','helicopter','(123)123-1234','test2@test.com','Su','12:00 am','10:00 pm','Yes','2','30','Yes'),(3,'test3','66f2068e2d8b878cd6f324a0797c9005a0a2de68ca77d888741e6dba740c3440478a9a52ede7d1f3c98f1fb32a721c2a3f5154db5a22cf9b8d811fa6797ad057','9b3c3073-c27e-490c-b747-b36d7dd7f0ab','test3','(947)395-5398','test3@gmail.com','Mo,Tu,We,Th,Fr,Sa,Su','12:00 am','01:00 am','Yes','3','30','Yes'),(4,'test4','66990b53b95f61afae87c6af4ea6e750281a1f620b809bf545561893a3cb4f286dcd37f84ae101dd822355997c525fa6795776b5fe6b5790847c6634cd23fc18','1b36e81e-c1df-4019-94c3-19d7cc391f24','test4addy','(999)999-9999','test4@shelter.com','Mo,Tu,We,Th,Fr,Sa,Su','24 Hours','24 Hours','Yes','10','20','Yes');
+INSERT INTO `shelters` VALUES (1,'Test1','759faeeba53f360f77c51765f4d94fb08b57902313695dc33db473c528e589f486a5c4866955509e395e05e39fb2882bca7de7a485fb980f08bde0d8249bbf4a','9f32a69c-c37f-4362-9874-1101d7a05637','1 testing st','(702)555-1234','test1@test.com','Mo,Tu,We,Th,Fr,Sa,Su','06:00 am','11:00 pm','Yes',10,30,'Yes'),(2,'Shelter2','9a58f013ab0304ce7c7f0f665c77552919d29e0812486a9fb73bac2f1c32d23e70ae2a3ee8e84cab10aa99f7798336258348658d5344ab2ce44fb3b846fdf2c0','b67ab20a-72d8-4c9f-b121-0d2d231408b7','1112 PunchCode Ave.','(702)123-4567','test2@test.com','Mo,Tu,We,Th,Fr,Sa,Su','05:00 am','11:00 pm','Yes',10,10,'Yes');
 /*!40000 ALTER TABLE `shelters` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -62,4 +62,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-23 20:13:51
+-- Dump completed on 2019-12-27  9:25:58

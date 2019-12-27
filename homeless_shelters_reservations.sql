@@ -31,7 +31,7 @@ CREATE TABLE `reservations` (
   `Gender` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `shelter_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `reservations` (
 
 LOCK TABLES `reservations` WRITE;
 /*!40000 ALTER TABLE `reservations` DISABLE KEYS */;
-INSERT INTO `reservations` VALUES (1,'December 26, 2019','Test1','Amy','Syxomphou','Female',1),(2,'December 26, 2019','Test1','Pizza','Hut','Male',1),(3,'December 26, 2019','Test1','Amazon','Prime','Male',1),(4,'December 26, 2019','Test1','Mike','Sweeney','Male',1),(5,'December 26, 2019','Test1','Josh','Leavitt','Male',1),(6,'December 26, 2019','Test1','Ryan','Lee','Male',1),(7,'December 26, 2019','Test1','Mario','Mitchell','Male',1),(8,'December 26, 2019','Test1','Zailey','Lo','Female',1),(9,'December 26, 2019','Test1','Nina','Sacamos','Female',1),(10,'December 26, 2019','Test1','Camrie','McArthur','Female',1),(11,'December 26, 2019','Shelter2','Amy','Syxomphou','Female',2);
+INSERT INTO `reservations` VALUES (1,'December 26, 2019','Test1','Amy','Syxomphou','Female',1),(2,'December 26, 2019','Test1','Pizza','Hut','Male',1),(3,'December 26, 2019','Test1','Amazon','Prime','Male',1),(4,'December 26, 2019','Test1','Mike','Sweeney','Male',1),(5,'December 26, 2019','Test1','Josh','Leavitt','Male',1),(6,'December 26, 2019','Test1','Ryan','Lee','Male',1),(7,'December 26, 2019','Test1','Mario','Mitchell','Male',1),(8,'December 26, 2019','Test1','Zailey','Lo','Female',1),(9,'December 26, 2019','Test1','Nina','Sacamos','Female',1),(10,'December 26, 2019','Test1','Camrie','McArthur','Female',1),(11,'December 26, 2019','Shelter2','Amy','Syxomphou','Female',2),(12,'December 26, 2019','Shelter2','Arielle','Swift','Female',2),(13,'December 26, 2019','Shelter2','Melissa','Bostic','Female',2),(14,'December 26, 2019','Shelter2','Minion','Syxomphou','Male',2),(15,'December 26, 2019','Shelter2','Minion','Syxomphou','Male',2),(16,'December 26, 2019','Shelter2','Cherry','Syxomphou','Female',2),(17,'December 26, 2019','Shelter2','Ryan','Martinez','Male',2),(18,'December 27, 2019','Test1','Ryan','Martinez','Male',1),(19,'December 27, 2019','Shelter2','Amy','Syxomphou','Female',2),(20,'December 27, 2019','Test1','Minion','Syxomphou','Male',1),(21,'December 27, 2019','Test1','Josh','Leavitt','Male',1),(22,'December 27, 2019','Test1','Mario','Mitchell','Male',1),(23,'December 27, 2019','Test1','Mike','Sweeney','Male',1),(24,'December 27, 2019','Test1','Ryan','Lee','Male',1);
 /*!40000 ALTER TABLE `reservations` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-26 18:40:49
+-- Dump completed on 2019-12-27  9:25:57
