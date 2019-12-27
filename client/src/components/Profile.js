@@ -21,12 +21,13 @@ export default props => {
     //     currentShelter = shelters.find(shelter => shelter.name === name) || {};
     //     console.log(currentShelter)
     //
-    const currentShelter = shelters.filter(e=> e.name == name) ? shelters.map(e=> e.open_beds) : ""
-    console.log(currentShelter)
+    const currentShelter = shelters.filter(e => e.name === name)
+    
+    const cs = currentShelter.map(e=> e.open_beds)
 
 
-    const currentShelterOpenBeds = currentShelter - currentLine.length
-    console.log(currentShelter, currentLine.length)
+    const currentShelterOpenBeds = currentLine.length === 0 ? cs : cs - currentLine.length
+    // console.log(currentShelter[0].open_beds, currentLine.length)
   
     
     const [updateAddress, setUpdateAddress] = useState('')
