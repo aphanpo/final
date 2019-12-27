@@ -54,12 +54,18 @@ button {
 .projectName, .HomeprojectName {
   font-size: 50px;
   font-family: 'Girassol', cursive;
-  
   font-weight: bold;
+  color: white;
+}
+
+.profproj {
+  font-family: fantasy;
+  color: white;
 }
 
 .registerName {
   color: black;
+  margin-left: 200px;
 }
 
 .HomeprojectName {
@@ -122,6 +128,7 @@ button {
   margin-top: 20px;
   /* margin: auto; */
   justify-content: space-evenly;
+  font-size: 20px;
 }
 
  .submitHeader{
@@ -139,6 +146,11 @@ button {
   justify-content: space-between;
   border-bottom: 1px solid black;
   margin-bottom: 40px;
+  color: black;
+}
+
+.res {
+  margin-right: 655px;
 }
 
 .profileHeader {
@@ -169,10 +181,10 @@ button {
   margin: auto;
   margin-top: 30px;
   /* margin-bottom: 0px; */
-  border: 1px solid black;
+  border: 2px solid black;
   padding: 10px;
   padding-bottom: 30px;
-  font-size: 18px;
+  font-size: 20px;
   color: black;
   overflow: scroll;
   height: 800px;
@@ -181,7 +193,7 @@ button {
 
 .loginForm:hover, .reservationForm:hover, .submission:hover {
   border: 3px solid green;
-  background-color: #CCC;
+  /* background-color: #CCC; */
 }
 
 .registerForm:hover {
@@ -194,7 +206,9 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 600px;
+  width: 800px;
+  height: 350px;
+  font-size: 20px;
   padding: 10px;
   padding-bottom: 20px;
   margin: auto;
@@ -210,7 +224,7 @@ button {
   padding: 10px;
   margin: auto;
   margin-top: 70px;
-  border: 1px solid black;
+  border: 2px solid black;
 }
 
 .loginForm {
@@ -222,7 +236,7 @@ button {
   padding-bottom: 40px;
   margin: auto;
   margin-top: 40px;
-  border: 1px solid black;
+  border: 2px solid black;
   font-size: 18px;
 }
 
@@ -276,6 +290,7 @@ button {
 
 .welcome {
   text-align: right;
+  font-family: 'Girassol', cursive;
   color: black;
 }
 
@@ -287,7 +302,7 @@ button {
 input {
   margin-bottom: 10px;
   margin-top: 5px;
-  height: 25px;
+  height: 30px;
   background-color: white;
   font-size: 14px;
   outline: none;
@@ -334,7 +349,7 @@ input:hover {
 
 .shelterTitle, .loginTitle, .reservationTitle, .profileTitle {
   text-align: center;
-  font-size: 35px;
+  font-size: 40px;
   font-family: fantasy;
   font-weight: bold;
 }
@@ -345,6 +360,10 @@ input:hover {
   font-family: fantasy;
   font-weight: bold;
   color: black;
+}
+
+.sub {
+  margin-right: 120px;
 }
 
 .submissionTitle {
@@ -432,14 +451,15 @@ input:hover {
 .resButton, .resButton>a {
   background-color: green;
   color: white;
-  padding: 5px;
+  height: 30px;
 }
 
 .LogOut {
   background-color: green;
   color: white;
-  padding: 5px;
-  font-size: 18px
+  /* padding: 5px; */
+  font-size: 18px;
+  height: 30px;
 }
 
 .box {
@@ -464,7 +484,6 @@ input:hover {
 
 .shelterName {
   font-family: fantasy;
-
   font-size: 35px;
   text-align: center;
   font-weight: bold;
@@ -490,7 +509,7 @@ input:hover {
   padding-bottom: 10px;
   font-weight: bold;
   border-bottom: 1px solid black;
-  font-size: 30px;
+  font-size: 35px;
   text-align: center;
   font-family: fantasy;
 

@@ -85,7 +85,7 @@ export default props => {
                     <div className="HomeButton">
                         <Link to="/"><Icon icon="home"> Home </Icon></Link>
                     </div>
-                    <p className="projectName">{name}</p>
+                    <p className="projectName profproj">{name}</p>
                     <button className="LogOut" onClick={e => signout()}><Link to="/" className="LogOut">Sign Out</Link></button>
             </div>
                 <p className="welcome">Beds For Hope</p>

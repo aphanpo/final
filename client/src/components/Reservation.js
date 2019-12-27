@@ -54,7 +54,7 @@ function handleSubmit(e){
             <div className="HomeButton">
                 <Link to="/"><Icon icon="home"> Home </Icon></Link>
             </div>
-            <p className="projectName">Beds For Hope</p>
+            <p className="projectName res">Beds For Hope</p>
         </div>
         <p className="reservationTitle"> Skip the line and add your name to the list here. </p>
         <div className="reservationForm">

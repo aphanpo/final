@@ -12,12 +12,12 @@ function SubmitPage(props) {
         <div className="SubmitPage">
             <div className="submitHeader">
                 <p><Link to="/ShelterList"><Icon icon="arrow-left"></Icon> Back to Shelter List</Link></p>
-                <p className="projectName">Beds For Hope</p>
+                <p className="projectName sub">Beds For Hope</p>
                 <div className="HomeButton">
                     <Link to="/"><Icon icon="home"> Home </Icon></Link>
                 </div>
             </div>
-            <p className="submissionTitle">You've been added on the waitlist for <br /><br /> {props.match.params.shelter} <br /> on {currentDay}</p>
+            <p className="submissionTitle">You've been added on the waitlist for <br /> <br />{currentDay}</p>
             <div className="submission">
                 <h1>Thank You</h1>
                 <p className="thanks">Some important reminders:</p>
