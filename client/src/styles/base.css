@@ -15,7 +15,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
-  background-color: #CCC;
+  background-color: lightsteelblue;
+  /* background-color: #CCC; */
 }
 
 code {
@@ -57,6 +58,10 @@ button {
   font-weight: bold;
 }
 
+.registerName {
+  color: black;
+}
+
 .HomeprojectName {
   text-align: center;
   margin-top: 200px;
@@ -74,7 +79,7 @@ button {
 }
 
 .register, .login, .shelterPage {
-  width: 1600px;
+  width: 100vw;
   margin: auto;
   margin-bottom: 30px;
   /* background-color: #CCC; */
@@ -82,22 +87,22 @@ button {
 }
 
 .submitPage {
-  width: 1600px;
+  width: 100vw;
   margin: auto;
   margin-bottom: 30px;
   color: black;
 }
 
 .reservation {
-  width: 1600px;
+  width: 100vw;
   margin: auto;
   margin-bottom: 30px;
-  background-color: #CCC;
+  background-color: lightsteelblue;
   color: darkslategrey;
 }
 
 .shelterPage {
-  width: 1600px;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   /* background-color: #cbd5f0; */
@@ -120,7 +125,7 @@ button {
 }
 
  .submitHeader{
-  width: 1600px;
+  width: 100vw;
   margin: auto;
   display: flex;
   align-items: center;
@@ -168,12 +173,18 @@ button {
   padding: 10px;
   padding-bottom: 30px;
   font-size: 18px;
+  color: black;
   overflow: scroll;
   height: 800px;
   background-color: transparent;
 }
 
-.registerForm:hover, .loginForm:hover, .reservationForm:hover, .submission:hover {
+.loginForm:hover, .reservationForm:hover, .submission:hover {
+  border: 3px solid green;
+  background-color: #CCC;
+}
+
+.registerForm:hover {
   border: 3px solid green;
   background-color: #CCC;
 }
@@ -237,10 +248,14 @@ button {
   margin-top: 70px;
 } */
 
-.insideWaitlist {
+.insideWaitlist, .waitcol {
   display: flex;  
   flex-direction: row;
   justify-content: space-between;
+}
+
+.waitcol {
+  text-decoration: underline;
 }
 
 .updateForm {
@@ -321,6 +336,7 @@ input:hover {
   text-align: center;
   font-size: 35px;
   font-family: fantasy;
+  font-weight: bold;
 }
 
 .registerTitle {
@@ -328,6 +344,7 @@ input:hover {
   font-size: 35px;
   font-family: fantasy;
   font-weight: bold;
+  color: black;
 }
 
 .submissionTitle {
@@ -450,7 +467,7 @@ input:hover {
 
   font-size: 35px;
   text-align: center;
-  /* font-weight: bold; */
+  font-weight: bold;
 }
 
 .last {
@@ -471,7 +488,7 @@ input:hover {
   padding-left: 40px;
   padding-top: 15px;
   padding-bottom: 10px;
-  /* font-weight: bold; */
+  font-weight: bold;
   border-bottom: 1px solid black;
   font-size: 30px;
   text-align: center;
@@ -527,6 +544,9 @@ input:hover {
   background-color: rgba(255, 255, 255, 0.6);
 }
 
+.RegisterBackgroundOverlay {
+  background-color: rgba(255, 255, 255, 0.7);
+}
 .RegisterBackgroundImage {
   background-image: url(https://images.pexels.com/photos/265702/pexels-photo-265702.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
   background-size: cover;

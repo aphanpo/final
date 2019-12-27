@@ -99,10 +99,15 @@ export default props => {
                     <div className="waitlist">
                         <p className="waitlistTitle"> Waitlist Reservation For: <b>{currentDay}</b> </p>
                         <p>Total Reservations: {currentLine.length}</p>
+                        <div className="waitcol">
+                            <p>Name</p>
+                        <p>Gender</p>
+                        </div>
+                        
                         {currentLine.map((list, index )=> (
                             <div className="insideWaitlist" key={"ll"+ index}>
-                            <p>{list.first_name} {list.last_name} </p>
-                            <p> ( {list.Gender} )</p>
+                                <p>{list.first_name} {list.last_name} </p>
+                                <p> ( {list.Gender} )</p>
                             
                             </div>
                         ))}

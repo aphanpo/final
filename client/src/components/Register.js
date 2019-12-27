@@ -63,8 +63,8 @@ export default props => {
                 <div className="HomeButton">
                     <Link to="/"><Icon icon="home"> Home </Icon></Link>
                 </div>
-                <p className="projectName">Beds For Hope</p>
-                <p>Already have an account? <Link to="./Login"><button className="LoginButton2">Login</button></Link></p>
+                <p className="projectName registerName">Beds For Hope</p>
+                <p className="registerName">Already have an account? <Link to="./Login"><button className="LoginButton2">Login</button></Link></p>
             </div>
             <p className="registerTitle">Create an account now</p>
             <div className="registerForm">  
