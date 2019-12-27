@@ -221,6 +221,7 @@ button {
 
 .updateForm {
   width: 650px;
+  height: 550px;
   border: 1px solid black;
   padding: 20px;
   margin-top: 70px;

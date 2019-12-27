@@ -31,8 +31,8 @@ export default props => {
 
             <div className="wrapper">
                 <div className="mainShelterList">
-                    {shelters.map(shelter => (
-                        <div className="shelterList">
+                    {shelters.map((shelter, i) => (
+                        <div className="shelterList" key={i}>
                             <p className="shelterName">{shelter.name}</p>
                             <p> <Icon icon="map-pin"></Icon> : {shelter.address}</p>
                             <p><Icon icon="phone"></Icon> : {shelter.phone}</p>
@@ -53,8 +53,9 @@ export default props => {
                 </div>
                 <div className="mainOtherShelterList">
                     <p className="openTitle">Other Nearby Shelters:</p>
-                    {other_shelters.map(os => (
-                    <div className="otherShelterList">
+                    {other_shelters.map((os, i) => (
+                    <div className="otherShelterList" key=
+                    {i}>
                         <p><b>{os.name}</b><br />
                         {os.formatted_address}</p>
                     </div>
