@@ -1,5 +1,5 @@
 {
-  "name": "final",
+  "name": "ya",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "start:server": "cd server && yarn start",
     "start": "concurrently \"yarn run start:server\" \"yarn run start:client\""
   },
-  "author": "",
+  "author": "Amy Phanphongsa-Syxomphou <aphanpo@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/PC-Fullstack-Fall-2019/boilerplate/issues"
@@ -31,5 +31,6 @@
     },
     "author": "",
     "license": "ISC"
-  }
+  },
+  "repository": "https://github.com/aphanpo/final.git"
 }
