@@ -11,6 +11,7 @@ export default props => {
         {/* <link href="https://fonts.googleapis.com/css?family=Girassol&display=swap" rel="stylesheet"></link>   */}
         <div className="HomeBackgroundPostiion HomeBackgroundImage" />
         <div className="HomeBackgroundPostiion HomeBackgroundOverlay" />
+        <p className="HomeprojectName">Beds For Hope</p> 
         <p className="homeheader">Are You ...</p>
 
         <div className="homepage">
@@ -29,9 +30,9 @@ export default props => {
                 <Link to="./Login" className="mainbuttons box3"><button className="mainbuttons LoginButton">SHELTER LOGIN</button></Link>
             </div>
         </div>
-        <footer>
+        {/* <footer>
            <p className="HomeprojectName">Beds For Hope</p> 
-        </footer>
+        </footer> */}
         
         </>
     )

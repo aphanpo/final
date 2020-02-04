@@ -35,7 +35,7 @@ button {
 }
 
 .homepage {
-  width: 100vw;
+  width: 1200px;
   margin: auto;
   display: flex;
   font-size: 30px;
@@ -44,14 +44,14 @@ button {
 
 .homeheader {
   text-align: center;
-  margin-top: 120px;
+  margin-top: 25px;
   font-size: 90px;
   font-weight: bold;
   font-family: 'Girassol', cursive;
 
 }
 
-.projectName, .HomeprojectName {
+.projectName{
   font-size: 50px;
   font-family: 'Girassol', cursive;
   font-weight: bold;
@@ -69,8 +69,11 @@ button {
 }
 
 .HomeprojectName {
-  text-align: center;
-  margin-top: 200px;
+  text-align: right;
+  font-family: 'Girassol', cursive;
+  font-weight: bold;
+  color: white;
+  margin-right: 10px;
 }
 
 .box {
@@ -81,11 +84,11 @@ button {
 }
 
 .box3 {
-  margin-top: 35px;
+  margin-top: 40px;
 }
 
 .register, .login, .shelterPage {
-  width: 100vw;
+  width: 1200px;
   margin: auto;
   margin-bottom: 30px;
   /* background-color: #CCC; */
@@ -93,14 +96,14 @@ button {
 }
 
 .submitPage {
-  width: 100vw;
+  width: 1200px;
   margin: auto;
   margin-bottom: 30px;
   color: black;
 }
 
 .reservation {
-  width: 100vw;
+  width: 1200px;
   margin: auto;
   margin-bottom: 30px;
   background-color: lightsteelblue;
@@ -108,7 +111,7 @@ button {
 }
 
 .shelterPage {
-  width: 100vw;
+  width: 1200px;
   display: flex;
   flex-direction: column;
   /* background-color: #cbd5f0; */
@@ -132,7 +135,7 @@ button {
 }
 
  .submitHeader{
-  width: 100vw;
+  width: 1200px;
   margin: auto;
   display: flex;
   align-items: center;
