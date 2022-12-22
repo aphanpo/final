@@ -19,7 +19,7 @@
     "concurrently": "^5.0.0",
     "express-jwt": "^5.3.1",
     "google-map-react": "^1.1.5",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^9.0.0"
   },
   "boilerplate": {
     "name": "boilerplate",
